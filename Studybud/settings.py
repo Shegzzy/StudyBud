@@ -65,10 +65,22 @@ WSGI_APPLICATION = 'Studybud.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "railway",
+        "USER": 'postgres',
+        "PASSWORD": 'zDODVo8UuhtgDesrqFSe',
+        "HOST": 'containers-us-west-84.railway.app',
+        "PORT": '5592',
+        "URL": 'postgresql://postgres:zDODVo8UuhtgDesrqFSe@containers-us-west-84.railway.app:5592/railway',
     }
 }
 

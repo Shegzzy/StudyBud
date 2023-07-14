@@ -1,0 +1,49 @@
+[
+{
+    "model": "base.room",
+    "pk": 1,
+    "fields": {
+        "host": 2,
+        "topic": 1,
+        "name": "Python",
+        "description": "Web development using Django",
+        "updated": "2023-01-11T20:54:15.557Z",
+        "created": "2023-01-11T20:53:40.811Z",
+        "participants": [
+            2
+        ]
+    }
+},
+{
+    "model": "base.room",
+    "pk": 2,
+    "fields": {
+        "host": 1,
+        "topic": 2,
+        "name": "JavaScript",
+        "description": "We are going to discuss about arrays and functions",
+        "updated": "2023-01-11T21:08:32.560Z",
+        "created": "2023-01-11T21:08:32.560Z",
+        "participants": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "base.room",
+    "pk": 3,
+    "fields": {
+        "host": 1,
+        "topic": 3,
+        "name": "HTML/CSS",
+        "description": "",
+        "updated": "2023-01-11T21:09:44.559Z",
+        "created": "2023-01-11T21:09:44.559Z",
+        "participants": [
+            1,
+            2
+        ]
+    }
+}
+]

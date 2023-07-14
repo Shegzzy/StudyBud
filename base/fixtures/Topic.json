@@ -1,0 +1,23 @@
+[
+{
+    "model": "base.topic",
+    "pk": 1,
+    "fields": {
+        "name": "Django"
+    }
+},
+{
+    "model": "base.topic",
+    "pk": 2,
+    "fields": {
+        "name": "Functions and Array"
+    }
+},
+{
+    "model": "base.topic",
+    "pk": 3,
+    "fields": {
+        "name": "Web hosting"
+    }
+}
+]

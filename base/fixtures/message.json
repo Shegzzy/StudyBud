@@ -1,0 +1,35 @@
+[
+{
+    "model": "base.message",
+    "pk": 3,
+    "fields": {
+        "user": 2,
+        "room": 3,
+        "body": "Hi",
+        "updated": "2023-07-14T15:12:58.936Z",
+        "created": "2023-07-14T15:12:58.936Z"
+    }
+},
+{
+    "model": "base.message",
+    "pk": 4,
+    "fields": {
+        "user": 2,
+        "room": 2,
+        "body": "Hi",
+        "updated": "2023-07-14T15:14:27.246Z",
+        "created": "2023-07-14T15:14:27.246Z"
+    }
+},
+{
+    "model": "base.message",
+    "pk": 7,
+    "fields": {
+        "user": 1,
+        "room": 3,
+        "body": "Hi",
+        "updated": "2023-07-14T16:24:35.236Z",
+        "created": "2023-07-14T16:24:35.236Z"
+    }
+}
+]
