@@ -26,7 +26,7 @@ from .forms import roomForm, UpdateUser
 def loginPage(request):
     page = 'login'
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('index')
     if request.method == 'POST':
         username = request.POST.get('username').lower()
         password = request.POST.get('password')
@@ -39,7 +39,7 @@ def loginPage(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('index')
         else:
             messages.error(request, 'Username or Password is incorrect')
 
@@ -56,7 +56,7 @@ def registerUser(request):
             user.username = user.username.lower()
             user.save()
             login(request, user)
-            return redirect('home')
+            return redirect('index')
         else:
             messages.error(request, 'An error has occurred')
     context = {'form': form}
@@ -65,10 +65,10 @@ def registerUser(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('home')
+    return redirect('index')
 
 
-def home(request):
+def index(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
     rooms = Room.objects.filter(
         Q(topic__name__icontains=q) | Q(name__icontains=q))
@@ -77,7 +77,7 @@ def home(request):
     room_messages = Message.objects.filter(Q(room__topic__name__icontains=q))
     context = {'rooms': rooms, 'topics': topics,
                'room_count': room_count, 'room_messages': room_messages}
-    return render(request, 'base/home.html', context)
+    return render(request, 'base/index.html', context)
 
 
 def room(request, pk):
@@ -134,7 +134,7 @@ def createRoom(request):
         #     room = forms.save(commit=False)
         #     room.host = request.user
         #     room.save()
-        return redirect('home')
+        return redirect('index')
     context = {'forms': forms, 'topics': topics, 'c': c}
     return render(request, 'base/room_form.html', context)
 
@@ -155,7 +155,7 @@ def updateRoom(request, pk):
         room.description = request.POST.get('description')
         room.save()
 
-        return redirect('home')
+        return redirect('index')
 
     context = {'forms': forms, 'topics': topics, 'room': room}
     return render(request, 'base/room_form.html', context)
@@ -168,7 +168,7 @@ def deleteRoom(request, pk):
         return HTTPResponse('You do not have permission to delete this room.')
     if request.method == 'POST':
         room.delete()
-        return redirect('home')
+        return redirect('index')
     return render(request, 'base/delete.html', {'obj': room})
 
 
@@ -179,7 +179,7 @@ def deleteMessage(request, pk):
         return HTTPResponse('You are not allowed here!!')
     if request.method == 'POST':
         message.delete()
-        return redirect('home')
+        return redirect('index')
     return render(request, 'base/delete.html', {'obj': message})
 
 
