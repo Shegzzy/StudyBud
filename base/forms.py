@@ -15,4 +15,4 @@ class roomForm(ModelForm):
 class UpdateUser(ModelForm):
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['username', 'email', 'password']

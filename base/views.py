@@ -58,7 +58,7 @@ def registerUser(request):
             login(request, user)
             return redirect('index')
         else:
-            messages.error(request, 'An error has occurred')
+            messages.error(request, 'An error has occurred, Password should be at least 8 characters long.')
     context = {'form': form}
     return render(request, 'base/login_register.html', context)
 
@@ -75,8 +75,13 @@ def index(request):
     topics = Topic.objects.all()
     room_count = rooms.count()
     room_messages = Message.objects.filter(Q(room__topic__name__icontains=q))
-    context = {'rooms': rooms, 'topics': topics,
-               'room_count': room_count, 'room_messages': room_messages}
+    context = {
+        'rooms': rooms,
+        'topics': topics,
+        'room_count': room_count,
+        'room_messages': room_messages,
+        'query': q
+        }
     return render(request, 'base/index.html', context)
 
 
